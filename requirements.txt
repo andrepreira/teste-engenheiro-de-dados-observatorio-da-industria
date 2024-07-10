@@ -8,3 +8,5 @@ apache-airflow-providers-celery
 apache-airflow-providers-redis
 psycopg2-binary
 ipykernel
+pyspark
+pendulum

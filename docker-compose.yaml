@@ -1,15 +1,17 @@
 x-airflow-common: &airflow-common
-  image: local-cluster-airflow:1.0.0
+  build:
+    context: .
+    dockerfile: Dockerfile
   environment: &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
-    AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
 
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
     
     # configure as chaves abaixo
-    AIRFLOW__CORE__FERNET_KEY: ''
-    AIRFLOW__WEBSERVER__SECRET_KEY: ''
+    AIRFLOW__CORE__FERNET_KEY: 'airflow'
+    AIRFLOW__WEBSERVER__SECRET_KEY: 'airflow'
 
     AIRFLOW_UID: 50000
 
