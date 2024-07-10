@@ -7,7 +7,7 @@ AIRFLOW_PLUGINS := $(AIRFLOW_HOME)/plugins
 
 setup_airflow:
 	mkdir -p $(AIRFLOW_LOGS) $(AIRFLOW_PLUGINS) $(AIRFLOW_CONFIG)
-	echo -e "AIRFLOW_UID=$$(id -u)" > $(AIRFLOW_HOME)/.env
+	echo "AIRFLOW_UID=$$(id -u)" > $(AIRFLOW_HOME)/.env
 
 init: setup_airflow
 	docker compose up airflow-init -d

@@ -5,3 +5,5 @@ config/
 logs/
 plugins/
 __pycache__/
+*.pyc
+dags/resultado/*.ipynb

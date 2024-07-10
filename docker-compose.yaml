@@ -27,6 +27,14 @@ x-airflow-common: &airflow-common
       condition: service_healthy
 
 services:
+  spark:
+      image: bitnami/spark:latest
+      ports:
+        - 4040:4040
+      volumes:
+        - ./spark-app:/app
+      environment:
+        - SPARK_MODE=master
   postgres:
     image: postgres
     environment:
